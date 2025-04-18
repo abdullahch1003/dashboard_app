@@ -1,0 +1,12 @@
+ <%= turbo_stream.update 'card_content' do %>
+  <div class="grid grid-cols-2 gap-4">
+    <% @cards.each do |card| %>
+      <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <p><%= card.title%></p>
+        <p><%= card.description%></p>
+        <p><%= card.status%></p>
+        <p><%= card.priority%></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
