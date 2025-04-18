@@ -1,0 +1,31 @@
+require: rubocop-rails
+Style/FrozenStringLiteralComment:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/StringLiterals:
+  Exclude:
+    - Gemfile
+    - config/importmap.rb
+    - config/application.rb
+    - config/environments/development.rb
+    - config/environments/production.rb
+Style/GlobalStdStream:
+  Exclude:
+    - config/environments/production.rb
+Style/ClassAndModuleChildren:
+  Exclude:
+    - test/test_helper.rb
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Exclude:
+    - Gemfile
+Rails/Output:
+  Exclude:
+    - db/seeds.rb
+    - config/environments/development.rb
+Lint/UselessAssignment:
+  Exclude:
+    - bin/helpers/puma.rb
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/development.rb

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 ruby "3.3.0"
@@ -24,6 +26,8 @@ gem 'stimulus-rails'
 gem "chartkick"
 
 gem "groupdate"
+
+gem 'rubocop-rails', require: false
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"

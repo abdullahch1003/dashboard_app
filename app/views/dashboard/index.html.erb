@@ -1,0 +1,61 @@
+<div class="container mx-auto">
+  <p class="text-8xl mb-4">Dashboard</p>
+  <div>
+    <p class="text-4xl mb-4">Metrics</p>
+    <%= form_with url: metrics_path, method: :get, data: {controller: "metric", turbo_frame: "graph_content", turbo_stream: true} do |f| %>
+      <%= f.select(
+              :category,
+             ["Sales", "Traffic", "conversions"],
+              { 
+                include_blank: "Select any category", 
+              },
+              {
+                class: "p-2 rounded border",
+                data: {
+                  action: "metric#updateGraph"
+                }
+              }
+            )
+          %>
+    <% end %>
+    <%= turbo_frame_tag "graph_content" do %>
+      <p>Metric graph content will show here...</p>
+    <% end %>
+  </div>
+  <div>
+    <p class="text-4xl mb-4">Cards</p>
+    <%= form_with url: cards_path, method: :get, data: {controller: "card", turbo_frame: "card_content", turbo_stream: true} do |f| %>
+      <%= f.select(
+              :status,
+             ["Active", "Pending", "Completed"],
+              { 
+                include_blank: "Select any status", 
+              },
+              {
+                class: "p-2 rounded border",
+                data: {
+                  action: "card#applyFilter"
+                }
+              }
+            )
+          %>
+      <%= f.select(
+              :priority,
+             ["High", "Medium", "Low"],
+              { 
+                include_blank: "Select any priority", 
+              },
+              {
+                class: "p-2 rounded border",
+                data: {
+                  action: "card#applyFilter"
+                }
+              }
+            )
+          %>
+    <% end %>
+    <%= turbo_frame_tag "card_content" do %>
+      <p>Cards content will show here...</p>
+    <% end %>
+  </div>
+</div>
